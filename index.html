@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+  </head>
+  <body>
+    <h2>⏳ Đang chuyển hướng tới server...</h2>
+    <script>
+      fetch("link.json")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.url) {
+            window.location.href = data.url;
+          } else {
+            document.body.innerHTML = "❌ Không tìm thấy link ngrok.";
+          }
+        })
+        .catch(() => {
+          document.body.innerHTML = "❌ Lỗi khi tải link ngrok.";
+        });
+    </script>
+  </body>
+</html>
